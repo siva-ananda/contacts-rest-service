@@ -1,5 +1,9 @@
 package be.steformations.sivananda.service.contacts.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
 import be.steformations.java_data.contacts.interfaces.beans.Tag;
@@ -87,7 +91,7 @@ public class TagRestService {
 		return response;
 	}
 
-	// GET http://localhost:8080/contacts-rest/rs/tag/{id}
+	// DELETE http://localhost:8080/contacts-rest/rs/tag/{id}
 	@javax.ws.rs.DELETE
 	@javax.ws.rs.Path("{id:[1-9]+}")
 	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
@@ -102,4 +106,26 @@ public class TagRestService {
 		}
 		return response;
 	}
+
+	// GET http://localhost:8080/contacts-rest/rs/tag
+	@javax.ws.rs.GET
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	public Response getAllTags() {
+		Response response = null;
+		List<? extends Tag> tags = this.tagDao.getAllTags();
+		List<TagDto> dtos = new ArrayList<>();
+		for (Tag tag : tags) {
+			TagDto dto = new TagDto();
+			dto.setId(tag.getId());
+			dto.setValue(tag.getValue());
+			dtos.add(dto);
+		}
+
+		GenericEntity<List<TagDto>> entity = new GenericEntity<List<TagDto>>(dtos) {
+		};
+		response = Response.ok(entity).build();
+
+		return response;
+	}
+
 }
