@@ -86,4 +86,20 @@ public class TagRestService {
 		}
 		return response;
 	}
+
+	// GET http://localhost:8080/contacts-rest/rs/tag/{id}
+	@javax.ws.rs.DELETE
+	@javax.ws.rs.Path("{id:[1-9]+}")
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	public Response removeTag(@javax.ws.rs.PathParam("id") int id) {
+		Response response = null;
+		Tag tag = this.tagDao.getTagById(id);
+		if (tag != null) {
+			this.tagDao.removeTag(id);
+			response = Response.ok().build();
+		} else {
+			Response.status(404).build();
+		}
+		return response;
+	}
 }
