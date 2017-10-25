@@ -19,7 +19,7 @@ public class TagRestService {
 
 	// GET http://localhost:8080/contacts-rest/rs/tag/1/value
 	@javax.ws.rs.GET
-	@javax.ws.rs.Path("{pk}/value")
+	@javax.ws.rs.Path("{pk:[1-9]+}/value")
 	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.TEXT_PLAIN)
 	public String getTagValueById(@javax.ws.rs.PathParam("pk") int id) {
 		Tag tag = this.tagDao.getTagById(id);
