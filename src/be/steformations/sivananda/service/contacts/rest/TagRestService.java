@@ -33,7 +33,7 @@ public class TagRestService {
 		return tag.getValue();
 	}
 
-	// GET http://localhost:8080/contacts-rest/rs/tag/1/value
+	// GET http://localhost:8080/contacts-rest/rs/tag/1
 	@javax.ws.rs.GET
 	@javax.ws.rs.Path("{pk:[1-9]+}")
 	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.TEXT_PLAIN)
