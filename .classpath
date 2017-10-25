@@ -12,5 +12,43 @@
 	<classpathentry kind="lib" path="dependencies/spring-expression-4.1.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="dependencies/spring-jdbc-4.1.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="dependencies/spring-tx-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/aopalliance-repackaged-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="dependencies/asm-debug-all-5.0.4.jar"/>
+	<classpathentry kind="lib" path="dependencies/aspectjrt-1.8.7.jar"/>
+	<classpathentry kind="lib" path="dependencies/commonj.sdo-2.1.1.jar"/>
+	<classpathentry kind="lib" path="dependencies/eclipselink-2.6.4-RC1.jar"/>
+	<classpathentry kind="lib" path="dependencies/hk2-api-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="dependencies/hk2-locator-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="dependencies/hk2-utils-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-core-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-databind-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-jaxrs-base-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-jaxrs-json-provider-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/jackson-module-jaxb-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="dependencies/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="dependencies/javax.inject-2.4.0-b31.jar"/>
+	<classpathentry kind="lib" path="dependencies/javax.json-1.0.4.jar"/>
+	<classpathentry kind="lib" path="dependencies/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="dependencies/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="dependencies/jcl-over-slf4j-1.7.13.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-client.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-common.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-container-jdk-http-2.22.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-entity-filtering-2.22.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-guava-2.22.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-media-json-jackson-2.22.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-media-moxy-2.22.jar"/>
+	<classpathentry kind="lib" path="dependencies/jersey-server.jar"/>
+	<classpathentry kind="lib" path="dependencies/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="dependencies/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="dependencies/slf4j-api-1.7.13.jar"/>
+	<classpathentry kind="lib" path="dependencies/slf4j-simple-1.7.21.jar"/>
+	<classpathentry kind="lib" path="dependencies/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>
