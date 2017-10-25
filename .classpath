@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="dependencies/contacts-dto.jar"/>
+	<classpathentry kind="lib" path="dependencies/pc-contacts-dao-springjdbc.jar"/>
+	<classpathentry kind="lib" path="dependencies/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="dependencies/postgresql-9.3-1101.jdbc4.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-beans-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-context-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-core-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-expression-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-jdbc-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="dependencies/spring-tx-4.1.2.RELEASE.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>
