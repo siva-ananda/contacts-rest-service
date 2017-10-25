@@ -50,4 +50,18 @@ public class TagRestService {
 		return xml;
 	}
 
+	// POST http://localhost:8080/contacts-rest/rs/tag/{value}
+	@javax.ws.rs.POST
+	@javax.ws.rs.Path("{value}")
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	public TagDto createAndSaveTag(@javax.ws.rs.PathParam("value") String value) {
+		TagDto dto = new TagDto();
+		Tag tag = this.tagDao.createAndSaveTag(value);
+		if (tag != null) {
+			dto.setId(tag.getId());
+			dto.setValue(tag.getValue());
+		}
+		return dto;
+	}
+
 }
