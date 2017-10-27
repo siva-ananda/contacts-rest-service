@@ -7,7 +7,6 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
 import be.steformations.java_data.contacts.interfaces.beans.Contact;
-import be.steformations.java_data.contacts.interfaces.beans.Country;
 import be.steformations.java_data.contacts.interfaces.beans.Tag;
 import be.steformations.java_data.contacts.interfaces.dao.ContactDao;
 import be.steformations.sivananda.data.contacts.dto.ContactDto;
@@ -63,7 +62,7 @@ public class ContactRestService {
 		}
 		return response;
 	}
-	
+
 	// http://localhost:8080/contacts-rest/rs/contact
 	@javax.ws.rs.GET
 	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
@@ -77,6 +76,49 @@ public class ContactRestService {
 		GenericEntity<List<ContactDto>> entity = new GenericEntity<List<ContactDto>>(dtos) {
 		};
 		response = Response.ok(entity).build();
+		return response;
+	}
+
+	// http://localhost:8080/contacts-rest/rs/contact/{id}
+	@javax.ws.rs.DELETE
+	@javax.ws.rs.Path("{id}")
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	public Response removeContact(@javax.ws.rs.PathParam("id") int id) {
+		Response response = null;
+		Contact c = this.contactDao.getContactById(id);
+		if (c == null) {
+			response = Response.status(404).build();
+		} else {
+			this.contactDao.removeContact(id);
+			ContactDto dto = this.createDto(c);
+			response = Response.ok(dto).build();
+		}
+		return response;
+	}
+
+	// http://localhost:8080/contacts-rest/rs/contact
+	@javax.ws.rs.POST
+	@javax.ws.rs.Consumes(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	// autre manière de faire le post : reçoit et envoie du xml
+	public Response createAndSaveContact(ContactDto input) {
+		Response response = null;
+
+		String countryAbbreviation = input.getCountry() == null ? null : input.getCountry().getAbbreviation();
+		List<String> tagValues = new ArrayList<>();
+		for (TagDto t : input.getTags()) {
+			tagValues.add(t.getValue());
+		}
+
+		Contact c = this.contactDao.createAndSaveContact(input.getFirstname(), input.getName(), input.getEmail(),
+				countryAbbreviation, tagValues);
+
+		if (c == null) {
+			response = Response.status(500).build();
+		} else {
+			ContactDto dto = this.createDto(c);
+			response = Response.ok(dto).build();
+		}
 		return response;
 	}
 
