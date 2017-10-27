@@ -41,7 +41,7 @@ public class CountryRestService {
 
 	// http://localhost:8080/contacts-rest/rs/country
 	@javax.ws.rs.GET
-	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+	@javax.ws.rs.Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
 	public Response getAllCountries() {
 		Response response = null;
 		List<? extends Country> countries = this.countryDao.getAllCountries();
@@ -56,6 +56,26 @@ public class CountryRestService {
 		GenericEntity<List<CountryDto>> entity = new GenericEntity<List<CountryDto>>(dtos) {
 		};
 		response = Response.ok(entity).build();
+		return response;
+	}
+
+	@javax.ws.rs.POST
+	@javax.ws.rs.Consumes(javax.ws.rs.core.MediaType.APPLICATION_FORM_URLENCODED)
+	// ne renvoie plus les infos par l'url mais par un formulaire html
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+	public Response createAndSaveCountry(@javax.ws.rs.FormParam("abbr") String abbreviation,
+			@javax.ws.rs.FormParam("name") String name) {
+		Response response = null;
+		Country country = this.countryDao.createAndSaveCountry(abbreviation, name);
+		if (country != null) {
+			CountryDto dto = new CountryDto();
+			dto.setId(country.getId());
+			dto.setAbbreviation(country.getAbbreviation());
+			dto.setName(country.getName());
+			response = Response.ok(dto).build();
+		} else {
+			response = Response.serverError().build();
+		}
 		return response;
 	}
 
