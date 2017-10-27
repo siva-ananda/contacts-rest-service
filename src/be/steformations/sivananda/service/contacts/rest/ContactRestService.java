@@ -1,8 +1,13 @@
 package be.steformations.sivananda.service.contacts.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
 import be.steformations.java_data.contacts.interfaces.beans.Contact;
+import be.steformations.java_data.contacts.interfaces.beans.Country;
 import be.steformations.java_data.contacts.interfaces.beans.Tag;
 import be.steformations.java_data.contacts.interfaces.dao.ContactDao;
 import be.steformations.sivananda.data.contacts.dto.ContactDto;
@@ -56,6 +61,22 @@ public class ContactRestService {
 			ContactDto dto = this.createDto(c);
 			response = Response.ok(dto).build();
 		}
+		return response;
+	}
+	
+	// http://localhost:8080/contacts-rest/rs/contact
+	@javax.ws.rs.GET
+	@javax.ws.rs.Produces(javax.ws.rs.core.MediaType.APPLICATION_XML)
+	public Response getAllContacts() {
+		Response response = null;
+		List<? extends Contact> contacts = this.contactDao.getAllContacts();
+		List<ContactDto> dtos = new ArrayList<>();
+		for (Contact c : contacts) {
+			dtos.add(this.createDto(c));
+		}
+		GenericEntity<List<ContactDto>> entity = new GenericEntity<List<ContactDto>>(dtos) {
+		};
+		response = Response.ok(entity).build();
 		return response;
 	}
 
