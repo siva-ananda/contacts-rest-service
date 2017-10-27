@@ -5,6 +5,7 @@ import java.net.URI;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import be.steformations.sivananda.service.contacts.rest.ContactRestService;
 import be.steformations.sivananda.service.contacts.rest.CountryRestService;
 import be.steformations.sivananda.service.contacts.rest.TagRestService;
 
@@ -17,6 +18,7 @@ public class ContactRestServer {
 		ResourceConfig config = new ResourceConfig();
 		config.register(TagRestService.class);
 		config.register(CountryRestService.class);
+		config.register(ContactRestService.class);
 		
 		JdkHttpServerFactory.createHttpServer(uri, config);
 		
